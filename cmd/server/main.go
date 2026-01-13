@@ -26,10 +26,9 @@ func main() {
 		log.Fatalf("create server: %v", err)
 	}
 
-	go srv.ListenLoop()             // 接收客户端数据
-	go srv.ReliableRetransmitLoop() // 广播游戏帧
-	go srv.BroadcastLoop()          // 可靠消息重传
-	go srv.CheckPlayerTimeout()     // 玩家超时检测
+	// 使用新版 netcore.Start 一次性启动所有循环
+	srv.Start()
+	defer srv.Close()
 
 	log.Printf("ballbattle server started on %s (hz=%d, foods=%d, size=%.1f)", listen, hz, foodCount, arenaSize)
 
