@@ -1,6 +1,6 @@
 # BallBattle
 
-帧同步的多人小游戏示例，WASD/方向键移动。服务器权威，客户端渲染。
+帧同步的多人小游戏示例，服务器权威。
 
 ## 功能
 - UDP + 自定义可靠层
@@ -10,8 +10,7 @@
 
 ## 运行
 - 服务器：`go run cmd/server/main.go -listen :30000 -hz 60 -foods 120 -size 100`
-- 客户端：`go run cmd/client/main.go -id 1 -server localhost:30000 -hz 60`
 
-窗口聚焦后，按 WASD/方向键移动。
+本仓库仅包含服务器实现；客户端可按需自行实现（例如 Unity）。
 
 
